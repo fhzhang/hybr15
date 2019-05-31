@@ -272,7 +272,7 @@
                 },
                 {
                     "key": "spring.session.yacceleratorstorefront.cookie.path",
-                    "value": "/"
+                    "value": "/store"
                 },
 		{
                     "key":"xss.filter.header.X-Frame-Options",
@@ -290,7 +290,7 @@
                 },
                 {
                     "name": "yacceleratorstorefront",
-                    "contextPath": ""
+                    "contextPath": "/store"
                 },
 		{
                     "name": "hac",
