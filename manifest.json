@@ -60,7 +60,8 @@
 	"azurecloudhotfolder",
 	"pcmbackofficesamplesaddon",
 	"cmsbackoffice", 
-	"virtualjdbc"
+	"virtualjdbc", 
+	"reportcockpit"
     ],
     "storefrontAddons": [
     	{
@@ -253,6 +254,10 @@
 		{
 		    "name": "virtualjdbc",
           	    "contextPath": "/virtualjdbc"
+        	},
+		{
+		    "name": "reportcockpit",
+		    "contextPath": "/reportcockpit"
         	}
             ]
         },
