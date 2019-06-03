@@ -59,7 +59,8 @@
 	"couponbackoffice",
 	"azurecloudhotfolder",
 	"pcmbackofficesamplesaddon",
-	"cmsbackoffice"
+	"cmsbackoffice", 
+	"virtualjdbc"
     ],
     "storefrontAddons": [
     	{
@@ -248,7 +249,11 @@
 		{
 		    "name": "yacceleratorstorefront",
 		    "contextPath": "/yacceleratorstorefront"
-		}
+		},
+		{
+		    "name": "virtualjdbc",
+          	    "contextPath": "/virtualjdbc"
+        	}
             ]
         },
         {
