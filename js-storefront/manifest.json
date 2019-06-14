@@ -1,8 +1,13 @@
 {
     "applications": [       
         {
+<<<<<<< HEAD
             "name": "cxlive-ui",
             "path": "cxlive-ui"
+=======
+            "name": "Orange-ui",
+            "path": "Orange-ui"
+>>>>>>> 9fb958a1d02bc2fa209add34184957be18e3af0a
         }
     ]
 }
