@@ -1,8 +1,8 @@
 {
     "applications": [       
         {
-            "name": "sample-ui",
-            "path": "Orange-ui"
+            "name": "cxlive-ui",
+            "path": "cxlive-ui"
         }
     ]
 }
