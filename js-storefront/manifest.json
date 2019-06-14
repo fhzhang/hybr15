@@ -1,7 +1,7 @@
 {
     "applications": [       
         {
-            "name": "sample-ui",
+            "name": "Orange-ui",
             "path": "Orange-ui"
         }
     ]
