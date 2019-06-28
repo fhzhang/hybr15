@@ -2,20 +2,24 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
-    "outDir": "./dist/cxlive-ui",
+    "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
-    "module": "es2015",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es5",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2017",
-      "dom"
-    ]
-  }
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["esnext", "dom"],
+    "strictPropertyInitialization": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "paths": {
+      "@spartacus/core": ["projects/core/public_api"],
+      "@spartacus/storefront": ["projects/storefrontlib/src/public_api"],
+      "@spartacus/vendor": ["projects/vendor/public_api"],
+      "@spartacus/assets": ["projects/assets/src/public_api"]
+    }
+  },
+  "exclude": ["./dist"]
 }

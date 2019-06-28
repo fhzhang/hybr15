@@ -1,69 +1,115 @@
-# CX Live
+![JavaScript storefront (spartacus)](docs/assets/spartacus-blue.png)
 
-This repository demonstrates some customisations on top of [Spartacus](https://github.com/SAP/cloud-commerce-spartacus-storefront). You can clone the repo and build, but the different branches can also be run in stackblitz.
+# What is Spartacus?
 
-## Demo 1: Getting started
-The getting started demo shows:
-1. pull in dependencies
-2. include the `StorefrontModule`
-3. Configure backend URL (OCC)
-4. Add the root storefront component
-5. Import the styles
+Spartacus is a lean, Angular-based JavaScript storefront for SAP Commerce Cloud. Spartacus talks to SAP Commerce Cloud exclusively through the Commerce REST API.
 
-**Note:** bootstrap is unfortunately published with a (peer)dependency to jquery, but we're not using it!
+- Documentation is hosted on our dedicated [Spartacus Documentation site](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/).
+- Questions? Join our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTRiNTFkMDJlZjRmYTBlY2QzZTM3YWNlYzJkYmEwZDY2MjM0MmIyYzdhYmQwZDMwZjg2YTAwOGFjNDBhZDYyNzE).
+- For details on the 1.0 launch, see the [Release 1.0 Information page](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/Release-1.0-Information/) on our Spartacus documentation site.
 
-**code** https://stackblitz.com/github/tobi-or-not-tobi/cxlive/tree/cx-storefront
+Spartacus is...
 
-**video** https://enable.cx.sap.com/media/Spartacus+Extensibility+Live+Coding++Part+1A+Setup+-+SAP+Commerce+Cloud/1_qry4lath
+- **Extendable**: Spartacus is designed to be upgradable while maintaining full extendability. You'll be able to adopt new versions of Spartacus by updating the Spartacus libraries that we will regularly enhance. (In order to ensure that the first release is as extendable and upgradable as we'd like, breaking changes will very likely be introduced up until the 1.0 launch.)
+- **Upgradable**: Spartacus code is published and used as libraries and follows semantic versioning conventions. By using the libraries, Spartacus is upgradable for minor and patch releases.
+- **Progressive**: Spartacus is on a journey to be fully compliant with the Progressive Web Application (PWA) checklist. We aim to add support for all major features of a PWA-enabled storefront, to offer the best possible customer experience regardless of device or location.
+- **Open Source**: Spartacus is open source. It will be continually developed by the SAP Commerce Cloud team, but we are very keen to welcome contributors and to foster an inclusive, active development community for Spartacus. See our [contributing documentation](CONTRIBUTING.md) for more information.
+- **Modern**: The Spartacus storefront is part of our exciting new journey towards a customizable-yet-upgradable technology for SAP Commerce Cloud installations. See [SAP Customer Experience](https://cx.sap.com/en/products/commerce) for more information about SAP Commerce Cloud.
 
-## Demo 2: Runtime theming
-This demonstrates the ability to add runtime (CSS variables) theme configurations. Althoug we demonstrate this at build time, those css variables are runtime configurable, opening a new world of configurable styling. 
-1. Add custom css variables to styles.scss
-2. Add css variables to specific elements or components (i.e. y-add-to-cart)
 
-**code** https://stackblitz.com/github/tobi-or-not-tobi/cxlive/tree/runtime-theming
 
-**video** https://enable.cx.sap.com/media/Spartacus+Extensibility+Live+Coding+Part+2A+Lipstick+Styling+-+SAP+Commerce+Cloud/1_suq4fmge
+# Storefront features
 
-## Demo 3: Replace component
-This demonstrates the ability to replace a component, using so-called outlets. We intend to have outlets for pages, page templates, CMS slots, component (types) or any fragments that we've marked as an outlet. In this we override the search for mobile users, and replace it with a search-as-you-speak capability.
+Spartacus provides core storefront features such as:
 
-1. Override the SearchBoxComponent using an ng-template
-2. Implement a custom search component
-3. Add the custom search component in the template
+- Home page
+- Search
+- Categories
+- Product details
+- Cart page
+- Adding to cart
+- Checkout
+- Order history
 
-**note:** the search box component will have an input feed the input directly into the search listing page. Since we don't have that today, we've add custom logic to navigate ourselfs to the search result page. 
+See the [Release 1.0 documentation](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/Release-1.0-Information/) for more information.
 
-**code** https://stackblitz.com/github/tobi-or-not-tobi/cxlive/tree/custom-search
 
-**video** https://enable.cx.sap.com/media/Spartacus+Extensibility+Live+Coding+Part+3A+Speech-to-search+-+SAP+Commerce+Cloud/1_4wov6bb0
 
-## Demo 4: Override and leverage ctx data
-This demonstrates an pdp image outlet that uses the data provided from the context. This means our customisation doesn't need to do the hard lifting to load data from OCC direcly (or use our ngrx store), it's available right away. 
+# Requirements
 
-1. Introduce type-safe outlet references (`ProductDetailOutlets` or `ProductDetailsComponent.outlets`)
-2. Create an `ng-template` and register it to the `IMAGES` outlet
-3. Add a context attribute to the template (i.e. `let-model`
-4. Use the context attribute inside the template (i.e. `{{model | json}}`
+- SAP Commerce Cloud instance
+  - Release 1905 recommended
+  - Works with 1811 and 1808, with reduced functionality
+- [Angular CLI](https://angular.io/): v8.0.0 or later, < v9.0.0
+- node.js: v10 or later, < v12
+- yarn: v1.15 or later
 
-In order to see the demo, launch a PDP page (i.e. 1382080). The image section is been override.
+# Download and Installation
 
-**code** https://stackblitz.com/github/tobi-or-not-tobi/cxlive/tree/outlet-with-context
+To get started with Spartacus, the recommended approach is to build your storefront application from ready-made libraries. You can also clone and build from source, but upgrading is not as simple.
 
-**video** https://enable.cx.sap.com/media/Spartacus+Extensibility+Live+Coding+Part+4A+Component+Context+-+SAP+Commerce+Cloud/1_0zy91r1g
+Spartacus currently can only be used with a SAP Commerce Cloud instance through Commerce APIs. 
 
-## Demo 5: Webcomponents
-This demonstration shows that we can add a conmponent written in non-angular frameworks (i.e. vuejs, polymer, react). This allows devs to pick the tech of choice. There are a number of [caveats to the use web components (aka custom elements)](https://caniuse.com/#search=custom%20elements%20v1) (despite the fact that firebix supports it since their latest release 🎉)
+For complete setup instructions, see the [Setup and Installation](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/Setup-and-Installation/) guide.
 
-We've chosen an existing web component and aren't interested in the tech it was created with. We're extending demo 4 with a panzoom capability for the selected image. 
 
-1. Use the same template we used in demo 4 (but use thumbnails here)
-2. Introduce an click event on the thumbnail to select the image
-3. Prepare the angular module to support custom elements (adding CUSTOM_ELEMENTS_SCHEMA to the module's schema's)
-4. Load an external web component (conditionally to demonstrate lazy loading of the web component)
-5. Use the web component and use the `src` input to hand over the large image URL
-6. (bonus, but cool) We're handing over our primary color (`--y-primary`) to the web components `--img-pan-zoom-spinner-color`, to ensure the same color is used in the loading spiner. This is the power of CSS variables who pierce through the shadow DOM!
 
-**code** https://stackblitz.com/github/tobi-or-not-tobi/cxlive/tree/product-image-zoom
+## Customizing and Extending Spartacus
 
-**video** https://enable.cx.sap.com/media/Spartacus+Extensibility+Live+Coding+Part+5A+Web+Components+-+SAP+Commerce+Cloud/1_kwff10lp
+To maintain our promise of upgradability, the design pattern for Spartacus is for non-core features to be built as feature libraries that add to or change the provided functionality.
+
+When using Spartacus, you build an app that pulls in the Spartacus libraries, which contain the core resources needed to work with SAP Commerce. You then build new features that contain any custom functionality and pages. 
+
+Content for Spartacus pages is fetched from the SAP Commerce Cloud CMS (Content Management System), such as logos, links, banners and static pages. We recommend that new content-driven features follow the same pattern to enable Content Managers to modify page content through the CMS tools.
+
+The documentation for customizing and extending Spartacus is still under development and is being released as it becomes available.
+
+
+
+# Limitations
+
+When 1.0 is released, it is recommended to use SAP Commerce 1905. Spartacus works with earlier versions of SAP Commerce Cloud, with limitations the farther back you go, mainly due to changes in OCC REST APIs. See the [Setup and Installation](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/Setup-and-Installation/) guide for more information. 
+
+Spartacus is also being updated so that it works well with upcoming releases of SAP Commerce Cloud. This means that certain features of Spartacus may only work with unreleased future editions of SAP Commerce Cloud. This will be noted as we release new versions of Spartacus.
+
+
+
+# Known Issues
+
+Known issues are documented in the GitHub issue tracking system.
+
+
+
+# How to Obtain Support
+
+Spartacus is provided "as-is" with no official lines of support.
+
+To get help from the Spartacus community:
+
+- For more general questions, post a question in the Help chat of our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTRiNTFkMDJlZjRmYTBlY2QzZTM3YWNlYzJkYmEwZDY2MjM0MmIyYzdhYmQwZDMwZjg2YTAwOGFjNDBhZDYyNzE).
+- For developer questions, post a question to [Stack Overflow with the 'spartacus' tag](https://stackoverflow.com/questions/tagged/spartacus).
+
+
+
+# Contributing
+
+Team Spartacus welcomes feedback, ideas, requests, and especially code contributions.
+
+- Post comments to our Feedback chat in our [Slack](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTRiNTFkMDJlZjRmYTBlY2QzZTM3YWNlYzJkYmEwZDY2MjM0MmIyYzdhYmQwZDMwZjg2YTAwOGFjNDBhZDYyNzE) channel.
+- Read the [Contributing document](CONTRIBUTING.md) and learn how to:
+  - Help others
+  - Report an issue
+  - Contribute code to Spartacus
+
+
+
+# To Do
+
+Many improvements are coming! All tasks will be posted to our GitHub issue tracking system. As mentioned, some of the improvements will mean breaking changes. While we strive to avoid doing so, we cannot guarantee this will not happen before the first release.
+
+
+
+# License
+
+Copyright (c) 2018 SAP SE or an SAP affiliate company. All rights reserved.
+This file is licensed under the Apache Software License, v. 2 except as noted otherwise in the [LICENSE](LICENSE.txt) file.
