@@ -280,7 +280,7 @@
                     "key": "spring.session.yacceleratorstorefront.cookie.path",
                     "value": "/store"
                 },
-		{
+				{
                     "key":"xss.filter.header.X-Frame-Options",
                     "value":""
                 },
@@ -298,7 +298,7 @@
                     "name": "yacceleratorstorefront",
                     "contextPath": "/store"
                 },
-		{
+				{
                     "name": "hac",
                     "contextPath": "/hac"
                 },
@@ -354,6 +354,25 @@
                 {
                     "name": "mediaweb",
                     "contextPath": "/medias"
+                }
+            ]
+        },
+		{
+            "name": "api",
+            "properties": [
+                {
+                    "key": "corsfilter.ycommercewebservices.allowedOrigins",
+                    "value": "http://localhost:4200"
+                }
+            ],
+            "webapps": [
+                {
+                    "name": "ycommercewebservices",
+                    "contextPath": "/rest"
+                },
+                {
+                    "name": "oauth2",
+                    "contextPath": "/authorizationserver"
                 }
             ]
         }

@@ -1,8 +1,8 @@
 {
     "applications": [       
         {
-            "name": "cxlive-ui",
-            "path": "cxlive-ui"
+            "name": "mystore",
+            "path": "mystore"
         }
     ]
 }
